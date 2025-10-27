@@ -1,8 +1,7 @@
-//*******************************************//
-//  COMPONENT MENU DANH MỤC SẢN PHẨM  //
-//******************************************//
+// src/components/CategoryMenu.tsx
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Thêm useNavigate
 import { 
     Menu, MenuItem, Typography, ListItemText, 
     ListItemIcon, Divider 
@@ -13,21 +12,34 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';     
 import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';
 
+interface Category {
+    name: string;
+    icon: React.ElementType;
+    path: string; // Thêm trường path (đường dẫn)
+}
+
 interface CategoryMenuProps {
     open: boolean;
     anchorEl: null | HTMLElement;
     handleClose: () => void;
 }
 
-// Dữ liệu giả định cho Menu Danh mục
-const categories = [
-    { name: 'Ô tô', icon: DirectionsCarIcon },
-    { name: 'Xe máy', icon: TwoWheelerIcon },
-    { name: 'Pin xe', icon: BatteryChargingFullIcon },
+// Dữ liệu giả định cho Menu Danh mục (ĐÃ CẬP NHẬT PATH)
+const categories: Category[] = [
+    { name: 'Ô tô điện', icon: DirectionsCarIcon, path: '/o-to-dien' }, // Link đến trang CategoryPage
+    { name: 'Xe máy điện', icon: TwoWheelerIcon, path: '/xe-may-dien' }, 
+    { name: 'Pin xe điện', icon: BatteryChargingFullIcon, path: '/pin-xe-dien' },
     // Thêm các danh mục khác nếu cần
 ];
 
 export const CategoryMenu: React.FC<CategoryMenuProps> = ({ open, anchorEl, handleClose }) => {
+    const navigate = useNavigate(); // Khởi tạo hook điều hướng
+
+    const handleCategoryClick = (path: string) => {
+        handleClose(); // Đóng menu trước
+        navigate(path); // Điều hướng đến path tương ứng
+    };
+
     return (
         <Menu
             anchorEl={anchorEl}
@@ -67,8 +79,7 @@ export const CategoryMenu: React.FC<CategoryMenuProps> = ({ open, anchorEl, hand
             {categories.map((category) => (
                 <MenuItem 
                     key={category.name} 
-                    // Ở đây bạn sẽ thêm logic điều hướng (ví dụ: router.push('/danh-muc/' + category.name))
-                    onClick={handleClose} 
+                    onClick={() => handleCategoryClick(category.path)} // Sử dụng hàm điều hướng
                     sx={{ py: 1.5 }} 
                 >
                     <ListItemIcon>

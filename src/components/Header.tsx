@@ -1,5 +1,6 @@
 import React, { useState, useEffect, type MouseEvent as ReactMouseEvent } from 'react';
 import type { MouseEvent } from 'react'; 
+import { Link } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -7,7 +8,8 @@ import {
   IconButton,
   InputBase,
   Box,
-  Avatar
+  Avatar,
+  Badge
 } from '@mui/material';
 
 // ********** Đảm bảo logo đã được đổi tên và Alt text được cập nhật sau này **********
@@ -153,7 +155,10 @@ const SearchBar = () => (
 
 // --- 3. Component Chính: Header (ĐÃ SỬA) ---
 export const Header = () => {
-
+// ********** STATE MỚI CHO BADGE **********
+    const [hasNewNotifications, setHasNewNotifications] = useState(true); // Ví dụ: TRUE để hiển thị chấm đỏ
+    const [isAuctionActive, setIsAuctionActive] = useState(true);       // Ví dụ: TRUE để hiển thị chấm đỏ
+// *****************************************
 
 
 // ********** STATE CHO TÀI KHOẢN **********
@@ -319,18 +324,21 @@ export const Header = () => {
             <MenuIcon />
         </IconButton>
 
-        {/* 2. Logo */}
-        <Box sx={{ display: 'flex', alignItems: 'center', minWidth: '100px' }}>
-          <img 
-            src={MyLogo}
-            alt="Ecycle Logo" // Đã cập nhật Alt text
-            style={{ 
-              height: '42px', 
-              cursor: 'pointer',
-              borderRadius: '8px', 
-            }}
-          />
-        </Box>
+        {/* 2. Logo (Dùng Link để chuyển hướng về trang chủ '/') */}
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', minWidth: '100px' }}>
+            <Box 
+              component="img" // Chuẩn cộng đồng: Dùng Box component="img"
+              src={MyLogo}
+              alt="Ecycle Logo - Về trang chủ"
+              sx={{ 
+                height: '42px', 
+                cursor: 'pointer',
+                borderRadius: '8px', 
+              }}
+            />
+          </Box>
+        </Link>
 
         {/* 3. Vùng chọn Khu vực: Truyền handleClick vào onClick */}
                 <LocationSelect 
@@ -344,14 +352,20 @@ export const Header = () => {
 
         {/* 5. Các nút Hành động */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          {/* ********** NÚT ĐẤU GIÁ (Đơn giản) ********** */}
-            <IconButton 
-                color="inherit" 
-                aria-label="auction"
-                onClick={() => { console.log("Auction button clicked"); }} 
+            {/* ********** NÚT ĐẤU GIÁ (Có Badge) ********** */}
+            <Badge 
+                variant="dot"  // Dùng chấm tròn nhỏ
+                color="error" // Màu đỏ
+                invisible={!isAuctionActive} // Ẩn nếu isAuctionActive là FALSE
+                >
+                <IconButton 
+                    color="inherit" 
+                    aria-label="auction"
+                    onClick={() => { console.log("Auction button clicked"); }} 
                 >
                 <GavelIcon />
-            </IconButton>
+                </IconButton>
+            </Badge>
             {/* ************************************** */}
           
           
@@ -365,14 +379,20 @@ export const Header = () => {
             </IconButton>
            {/* ********************************************* */}
 
-           {/* ********** NÚT THÔNG BÁO ********** */}
-            <IconButton 
+            {/* ********** NÚT THÔNG BÁO (Có Badge) ********** */}
+            <Badge 
+                variant="dot"
+                color="error"
+                invisible={!hasNewNotifications} // Ẩn nếu hasNewNotifications là FALSE
+                >
+                <IconButton 
                     color="inherit" 
                     aria-label="notifications"
-                    onClick={handleNotiOpen} // <--- THÊM ONCLICK
-                    >
+                    onClick={handleNotiOpen} 
+                >
                     <NotificationsNoneIcon />
                 </IconButton>
+            </Badge>
             {/* ************************************ */}
           
           {/* Nút Đăng nhập */}
