@@ -26,9 +26,9 @@ interface CategoryMenuProps {
 
 // Dữ liệu giả định cho Menu Danh mục (ĐÃ CẬP NHẬT PATH)
 const categories: Category[] = [
-    { name: 'Ô tô điện', icon: DirectionsCarIcon, path: '/o-to-dien' }, // Link đến trang CategoryPage
-    { name: 'Xe máy điện', icon: TwoWheelerIcon, path: '/xe-may-dien' }, 
-    { name: 'Pin xe điện', icon: BatteryChargingFullIcon, path: '/pin-xe-dien' },
+    { name: 'Ô tô điện', icon: DirectionsCarIcon, path: '/car-ecycle' }, // Link đến trang CategoryPage
+    { name: 'Xe máy điện', icon: TwoWheelerIcon, path: '/scooter-ecycle' }, 
+    { name: 'Pin xe điện', icon: BatteryChargingFullIcon, path: '/battery-ecycle' },
     // Thêm các danh mục khác nếu cần
 ];
 

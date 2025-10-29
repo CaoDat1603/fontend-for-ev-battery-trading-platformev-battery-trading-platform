@@ -21,9 +21,9 @@ interface Category {
 
 // CẬP NHẬT: Đảm bảo slugs khớp với Routes trong App.tsx
 const mockCategories: Category[] = [
-    { id: 'c1', name: 'Ô tô điện', image: Car, slug: '/o-to-dien' },
-    { id: 'c2', name: 'Xe máy điện', image: Scooter, slug: '/xe-may-dien' },
-    { id: 'c3', name: 'Pin xe điện', image: Battery, slug: '/pin-xe-dien' },
+    { id: 'c1', name: 'Ô tô điện', image: Car, slug: '/car-ecycle' },
+    { id: 'c2', name: 'Xe máy điện', image: Scooter, slug: '/scooter-ecyclen' },
+    { id: 'c3', name: 'Pin xe điện', image: Battery, slug: '/battery-ecycle' },
 ];
 
 // --- Custom Styled Component cho mỗi Item ---

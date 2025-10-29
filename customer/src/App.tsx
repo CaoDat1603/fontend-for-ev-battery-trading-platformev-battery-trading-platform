@@ -45,9 +45,9 @@ const App: React.FC = () => {
                     <Route path="/" element={<HomePage />} />
                     
                     {/* Các Routes chính */}
-                    <Route path="/o-to-dien" element={<EcycleCategoryPage />} /> 
-                    <Route path="/xe-may-dien" element={<PlaceholderPage title="Xe Máy Điện" />} />
-                    <Route path="/pin-xe-dien" element={<PlaceholderPage title="Pin Xe Điện" />} />
+                    <Route path="/car-ecycle" element={<EcycleCategoryPage />} /> 
+                    <Route path="/scooter-ecycle" element={<PlaceholderPage title="Xe Máy Điện" />} />
+                    <Route path="/battery-ecycle" element={<PlaceholderPage title="Pin Xe Điện" />} />
                 </Routes>
             </Box>
 
