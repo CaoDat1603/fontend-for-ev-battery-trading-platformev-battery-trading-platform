@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# ⚛️ React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project uses **React**, **TypeScript**, and **Vite** to build a fast and modern web application.  
+It includes basic ESLint rules and supports Hot Module Replacement (HMR) for an optimized development experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Getting Started
 
-## React Compiler
+### 1. Install Required Libraries
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material
+npm install react-router-dom
+npm install --save-dev @types/react @types/react-dom @types/node
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Run the Project
+```bash
+npm run dev
 ```
+
+## 🧩 Project Structure
+```bash
+src/
+├── assets/              # 0. Contains images and static files
+├── components/          # 1. Reusable UI components (Header, Footer, Custom Buttons)
+├── pages/               # 2. Main application pages (Homepage, Dashboard, Profile, etc.)
+├── theme/               # 3. Custom MUI theme definitions
+├── hooks/               # 4. Custom React hooks (useFetch, useAuth, etc.)
+├── utils/               # 5. Helper and utility functions (date formatting, validation, etc.)
+├── services/            # 6. API service functions for backend communication
+├── App.tsx              # Root component
+└── main.tsx             # Application entry point
+```
+
+## 🎨 UI Framework
+This project uses Material UI (MUI) for a clean and responsive design system.
+
+All theme customizations are located inside the src/theme/ directory.
+
+## 🧠 Notes
+- Includes TypeScript type definitions for React, React DOM, and Node.
+- ESLint and Vite provide a fast, type-safe developer experience.
+- The folder naming follows best practices for React + Vite projects.
+
+## 🪄 Summary
+✅ Vite for blazing-fast development
+
+✅ React + TypeScript for scalable architecture
+
+✅ MUI for modern, responsive UI
+
+✅ Ready-to-extend foundation for your Admin Dashboard
