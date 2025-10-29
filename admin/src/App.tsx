@@ -13,6 +13,8 @@ import GeneralSettingsPage from './pages/GeneralSettingsPage';
 
 import UserDetailPage from './pages/UserDetailPage';
 import PostDetailPage from './pages/PostDetailPage';
+import ComplaintDetailPage from './pages/ComplaintDetailPage';
+import TransactionDetailPage from './pages/TransactionDetailPage';
 
 import ProfilePage from './pages/ProfilePage';
 import HelpPage from './pages/HelpPage';
@@ -34,6 +36,8 @@ const App: React.FC = () => {
 
         <Route path="users/:userId" element={<UserDetailPage />} />
         <Route path="/content/:postId" element={<PostDetailPage />} />
+        <Route path="complaints/:complaintId" element={<ComplaintDetailPage />} />
+        <Route path="transactions/:transactionId" element={<TransactionDetailPage />} />
 
         <Route path="profile" element={<ProfilePage />} />
         <Route path="help" element={<HelpPage />} />
