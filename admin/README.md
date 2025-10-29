@@ -14,11 +14,15 @@ npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/icons-material
 npm install react-router-dom
 npm install --save-dev @types/react @types/react-dom @types/node
+```
 
 ### 2. Run the Project
+```bash
 npm run dev
+```
 
 ## 🧩 Project Structure
+```bash
 src/
 ├── assets/              # 0. Contains images and static files
 ├── components/          # 1. Reusable UI components (Header, Footer, Custom Buttons)
@@ -29,9 +33,11 @@ src/
 ├── services/            # 6. API service functions for backend communication
 ├── App.tsx              # Root component
 └── main.tsx             # Application entry point
+```
 
 ## 🎨 UI Framework
 This project uses Material UI (MUI) for a clean and responsive design system.
+
 All theme customizations are located inside the src/theme/ directory.
 
 ## 🧠 Notes
@@ -41,6 +47,9 @@ All theme customizations are located inside the src/theme/ directory.
 
 ## 🪄 Summary
 ✅ Vite for blazing-fast development
+
 ✅ React + TypeScript for scalable architecture
+
 ✅ MUI for modern, responsive UI
+
 ✅ Ready-to-extend foundation for your Admin Dashboard
